@@ -4,52 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Page</title>
+    
+    <!-- Google Font: Sacramento (handwritten, elegant) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    
     <style>
         html, body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #f0f0f0;
         }
 
-        /* First and second images full width */
-        img {
+        /* Container for first image and title overlay */
+        .hero {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Title below first image */
-        h1 {
-            font-size: 2em;
-            margin: 20px 0;
-            padding: 10px 20px;
+        /* Title overlay at bottom of first image */
+        .hero h1 {
+            font-family: 'Sacramento', cursive; /* elegant Disney-style font */
+            position: absolute;
+            bottom: 20px; /* distance from bottom */
+            left: 50%;
+            transform: translateX(-50%);
             color: white;
-            background-color: rgba(0,0,0,0.4); /* makes text readable on image */
-            border-radius: 8px;
+            font-size: 3em;
             text-align: center;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+            margin: 0;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.4); /* subtle background for readability */
+            border-radius: 8px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+        }
+
+        /* Second image directly below first image */
+        .second-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Remove extra spacing between images */
+        .hero + .second-image {
+            margin-top: 0;
         }
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
-                padding: 8px 16px;
+            .hero h1 {
+                font-size: 2em;
+                padding: 6px 12px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- First image -->
-    <img src="src/img1.jpg" alt="First Image">
+    <!-- First image with title overlay -->
+    <div class="hero">
+        <img src="src/img1.jpg" alt="First Image">
+        <h1>Will you be my maid of honor?</h1>
+    </div>
 
-    <!-- Title below first image -->
-    <h1>Will you be my maid of honor?</h1>
-
-    <!-- Second image at bottom -->
-    <img src="src/img2.gif" alt="Second Image">
+    <!-- Second image -->
+    <div class="second-image">
+        <img src="src/img2.gif" alt="Second Image">
+    </div>
 </body>
 </html>
